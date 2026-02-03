@@ -35,18 +35,20 @@ function generateResume(){
   const li = document.getElementById(outputId);
 
   if (value !== "") {
-    li.innerText = label + ": " + value;
+    li.textContent = label + ": " + value;
     li.style.display = "list-item";
   } else {
-    li.innerText = "";
+    li.textContent = "";
     li.style.display = "none";
   }
 }
 
+// apply education logic
 setEducation("edu10", "r-edu10", "10th");
 setEducation("edu12", "r-edu12", "12th");
 setEducation("ugCollege", "r-ugCollege", "UG");
 setEducation("pgCollege", "r-pgCollege", "PG");
+
 
   // skills
   const skillsBox = document.getElementById("r-skills");
