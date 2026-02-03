@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Resume Builder</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- html2pdf CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="form-section">
+        <h2>Create Your Resume</h2>
+
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="role" placeholder="Job Title">
+        <input type="text" id="phone" placeholder="Phone">
+        <input type="email" id="email" placeholder="Email">
+        <textarea id="summary" placeholder="Professional Summary"></textarea>
+        <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+        <textarea id="education" placeholder="Education"></textarea>
+        <textarea id="experience" placeholder="Experience"></textarea>
+
+        <button onclick="generateResume()">Generate Resume</button>
+        <button class="download" onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <div class="resume-section" id="resume">
+        <h1 id="r-name">Your Name</h1>
+        <h3 id="r-role">Your Job Title</h3>
+
+        <div class="contact">
+            <p id="r-phone"></p>
+            <p id="r-email"></p>
+        </div>
+
+        <hr>
+
+        <h4>Summary</h4>
+        <p id="r-summary"></p>
+
+        <h4>Skills</h4>
+        <ul id="r-skills"></ul>
+
+        <h4>Education</h4>
+        <p id="r-education"></p>
+
+        <h4>Experience</h4>
+        <p id="r-experience"></p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
