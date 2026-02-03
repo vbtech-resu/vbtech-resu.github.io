@@ -16,6 +16,10 @@ function generateResume(){
     document.getElementById("phone").value + " | " +
     document.getElementById("email").value;
 
+  document.getElementById("r-address").innerText =
+  document.getElementById("address").value;
+
+
   document.getElementById("r-summary").innerText =
     document.getElementById("summary").value;
 
