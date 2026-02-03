@@ -1,94 +1,102 @@
 body{
-    margin:0;
-    font-family: "Segoe UI", sans-serif;
-    background:#f4f6f8;
+margin:0;
+font-family:Calibri, Arial;
+background:#eef1f5;
 }
 
 .container{
-    display:flex;
-    gap:20px;
-    padding:20px;
+display:flex;
+gap:25px;
+padding:25px;
 }
 
 .form-section{
-    width:35%;
-    background:#ffffff;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+width:35%;
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,.1);
 }
 
 .form-section h2{
-    margin-bottom:15px;
-    color:#333;
+color:#1f3c88;
+}
+
+.form-section h3{
+margin-top:15px;
+color:#444;
 }
 
 .form-section input,
 .form-section textarea{
-    width:100%;
-    padding:10px;
-    margin-bottom:10px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-size:14px;
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
 }
 
-.form-section textarea{
-    height:70px;
-    resize:none;
-}
+textarea{height:70px}
 
 .form-section button{
-    width:100%;
-    padding:10px;
-    border:none;
-    border-radius:6px;
-    margin-top:8px;
-    font-size:15px;
-    cursor:pointer;
-    background:#2c3e50;
-    color:white;
+width:100%;
+padding:11px;
+border:none;
+border-radius:6px;
+font-size:15px;
+cursor:pointer;
+background:#1f3c88;
+color:#fff;
+margin-top:8px;
 }
 
-.form-section button.download{
-    background:#27ae60;
-}
+button.download{background:#2ecc71}
 
 .resume-section{
-    width:65%;
-    background:#ffffff;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+width:65%;
+background:#fff;
+padding:35px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,.1);
+}
+
+.header{
+display:flex;
+gap:20px;
+align-items:center;
+}
+
+.header img{
+width:110px;
+height:110px;
+border-radius:8px;
+object-fit:cover;
+border:2px solid #1f3c88;
 }
 
 .resume-section h1{
-    margin:0;
-    font-size:28px;
-    color:#2c3e50;
+margin:0;
+color:#1f3c88;
+font-size:30px;
 }
 
 .resume-section h3{
-    margin:5px 0 15px;
-    color:#555;
-}
-
-.contact{
-    display:flex;
-    justify-content:space-between;
-    font-size:14px;
-    color:#555;
+margin:5px 0;
+color:#555;
 }
 
 .resume-section h4{
-    margin-top:20px;
-    color:#2c3e50;
+margin-top:22px;
+color:#1f3c88;
+border-bottom:1px solid #ccc;
+padding-bottom:4px;
 }
 
 .resume-section ul{
-    padding-left:20px;
+padding-left:20px;
 }
 
-.resume-section hr{
-    margin:15px 0;
+.resume-section p{
+line-height:1.5;
 }
