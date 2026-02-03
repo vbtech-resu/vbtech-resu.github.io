@@ -1,46 +1,43 @@
-function generateResume(){
+function generate(){
 
-document.getElementById("r-name").innerText = name.value;
-document.getElementById("r-role").innerText = role.value;
-document.getElementById("r-contact").innerText = phone.value + " | " + email.value;
-document.getElementById("r-summary").innerText = summary.value;
+resume.className = "resume " + template.value;
 
-let skillsArr = skills.value.split(",");
-let skillList = document.getElementById("r-skills");
-skillList.innerHTML = "";
-skillsArr.forEach(s=>{
-let li = document.createElement("li");
-li.innerText = s.trim();
-skillList.appendChild(li);
+r_name.innerText = name.value;
+r_role.innerText = role.value;
+r_contact.innerText = phone.value + " | " + email.value;
+r_summary.innerText = summary.value;
+
+r_company.innerText = company.value;
+r_expRole.innerText = expRole.value;
+r_years.innerText = years.value;
+
+r_edu10.innerText = "10th: " + edu10.value;
+r_edu12.innerText = "12th: " + edu12.value;
+r_college.innerText = "College: " + college.value;
+
+r_skills.innerHTML = "";
+skills.value.split(",").forEach(s=>{
+let [skill, percent] = s.split(":");
+let bar = document.createElement("div");
+bar.innerHTML = `
+<b>${skill}</b>
+<div style="background:#ddd;height:6px;">
+<div style="width:${percent}%;height:6px;background:#1f3c88"></div>
+</div>`;
+r_skills.appendChild(bar);
 });
 
-document.getElementById("r-edu10").innerText = "10th: " + edu10.value;
-document.getElementById("r-edu12").innerText = "12th: " + edu12.value;
-document.getElementById("r-college").innerText = "College: " + college.value;
-
-document.getElementById("r-company").innerText = company.value;
-document.getElementById("r-expRole").innerText = expRole.value;
-document.getElementById("r-years").innerText = years.value;
-
-let file = document.getElementById("photo").files[0];
-if(file){
-let reader = new FileReader();
-reader.onload = function(){
-document.getElementById("r-photo").src = reader.result;
-};
-reader.readAsDataURL(file);
+if(photo.files[0]){
+let r = new FileReader();
+r.onload = ()=> r_photo.src = r.result;
+r.readAsDataURL(photo.files[0]);
 }
 }
 
-function downloadPDF(){
-html2pdf()
-.set({
-margin:0.5,
-filename:"Professional_Resume.pdf",
-image:{type:"jpeg", quality:0.98},
+function download(){
+html2pdf().from(resume).set({
+filename:"ATS_Resume.pdf",
 html2canvas:{scale:2},
-jsPDF:{unit:"in", format:"a4", orientation:"portrait"}
-})
-.from(document.getElementById("resume"))
-.save();
+jsPDF:{format:"a4"}
+}).save();
 }
