@@ -1,2 +1,2 @@
-# vbtech-resu.github.in
+# vbtech-resu.github.io
 Frontend resume builder website
