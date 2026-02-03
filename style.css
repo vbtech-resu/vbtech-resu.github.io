@@ -34,16 +34,16 @@ margin-top:8px;
 
 .download{background:#2ecc71}
 
-/* A4 size fix */
-#resume{
-  width: 794px;          /* A4 width */
-  min-height: 1123px;    /* A4 height */
-  background: white;
-  border:1px solid black;
-  box-sizing: border-box;
+.resume{
+  width: 794px;              /* A4 width */
+  min-height: 1123px;        /* A4 height */
+  background: #fff;
+  padding: 40px;             /* 👈 main fix */
+  box-sizing: border-box;    /* 👈 very important */
+  border-radius: 8px;
 }
 
-/* Page break support */
+/* PDF page break support */
 .page-break{
   page-break-before: always;
 }
