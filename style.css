@@ -1,0 +1,94 @@
+body{
+    margin:0;
+    font-family: "Segoe UI", sans-serif;
+    background:#f4f6f8;
+}
+
+.container{
+    display:flex;
+    gap:20px;
+    padding:20px;
+}
+
+.form-section{
+    width:35%;
+    background:#ffffff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.form-section h2{
+    margin-bottom:15px;
+    color:#333;
+}
+
+.form-section input,
+.form-section textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+
+.form-section textarea{
+    height:70px;
+    resize:none;
+}
+
+.form-section button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    margin-top:8px;
+    font-size:15px;
+    cursor:pointer;
+    background:#2c3e50;
+    color:white;
+}
+
+.form-section button.download{
+    background:#27ae60;
+}
+
+.resume-section{
+    width:65%;
+    background:#ffffff;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.resume-section h1{
+    margin:0;
+    font-size:28px;
+    color:#2c3e50;
+}
+
+.resume-section h3{
+    margin:5px 0 15px;
+    color:#555;
+}
+
+.contact{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    color:#555;
+}
+
+.resume-section h4{
+    margin-top:20px;
+    color:#2c3e50;
+}
+
+.resume-section ul{
+    padding-left:20px;
+}
+
+.resume-section hr{
+    margin:15px 0;
+}
