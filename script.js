@@ -36,11 +36,11 @@ function generateResume(){
   document.getElementById("r-edu12").innerText =
     "12th: " + document.getElementById("edu12").value;
 
-  document.getElementById("r-UG college").innerText =
-    "UG College: " + document.getElementById("UG college").value;
+  document.getElementById("r-ugcollege").innerText =
+    "UG: " + document.getElementById("ugcollege").value;
 
-  document.getElementById("r-PG college").innerText =
-    "PG College: " + document.getElementById("PG college").value;
+  document.getElementById("r-pgcollege").innerText =
+    "PG: " + document.getElementById("pgcollege").value;
 
   // skills
   const skillsBox = document.getElementById("r-skills");
