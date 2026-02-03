@@ -30,46 +30,23 @@ function generateResume(){
     document.getElementById("years").value;
 
   // education
-  // 10th
-const edu10Val = document.getElementById("edu10").value;
-const edu10Li = document.getElementById("r-edu10");
-if (edu10Val.trim() !== "") {
-  edu10Li.innerText = "10th: " + edu10Val;
-  edu10Li.style.display = "list-item";
-} else {
-  edu10Li.style.display = "none";
+  function setEducation(inputId, outputId, label) {
+  const value = document.getElementById(inputId).value.trim();
+  const li = document.getElementById(outputId);
+
+  if (value !== "") {
+    li.innerText = label + ": " + value;
+    li.style.display = "list-item";
+  } else {
+    li.innerText = "";
+    li.style.display = "none";
+  }
 }
 
-// 12th
-const edu12Val = document.getElementById("edu12").value;
-const edu12Li = document.getElementById("r-edu12");
-if (edu12Val.trim() !== "") {
-  edu12Li.innerText = "12th: " + edu12Val;
-  edu12Li.style.display = "list-item";
-} else {
-  edu12Li.style.display = "none";
-}
-
-// UG
-const ugVal = document.getElementById("ugCollege").value;
-const ugLi = document.getElementById("r-ugCollege");
-if (ugVal.trim() !== "") {
-  ugLi.innerText = "UG: " + ugVal;
-  ugLi.style.display = "list-item";
-} else {
-  ugLi.style.display = "none";
-}
-
-// PG
-const pgVal = document.getElementById("pgCollege").value;
-const pgLi = document.getElementById("r-pgCollege");
-if (pgVal.trim() !== "") {
-  pgLi.innerText = "PG: " + pgVal;
-  pgLi.style.display = "list-item";
-} else {
-  pgLi.style.display = "none";
-}
-
+setEducation("edu10", "r-edu10", "10th");
+setEducation("edu12", "r-edu12", "12th");
+setEducation("ugCollege", "r-ugCollege", "UG");
+setEducation("pgCollege", "r-pgCollege", "PG");
 
   // skills
   const skillsBox = document.getElementById("r-skills");
