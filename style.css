@@ -34,12 +34,20 @@ margin-top:8px;
 
 .download{background:#2ecc71}
 
-.resume{
-width:65%;
-background:white;
-padding:30px;
-border-radius:10px;
+/* A4 size fix */
+#resume{
+  width: 794px;          /* A4 width */
+  min-height: 1123px;    /* A4 height */
+  background: white;
+  border:1px solid black;
+  box-sizing: border-box;
 }
+
+/* Page break support */
+.page-break{
+  page-break-before: always;
+}
+
 
 .resume-photo{
 width:120px;
@@ -61,3 +69,10 @@ gap:25px;
 }
 
 .one .content{grid-template-columns:1fr;}
+
+@media print {
+  button {
+    display: none;
+  }
+}
+
