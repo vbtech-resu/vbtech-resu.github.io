@@ -74,3 +74,9 @@ border-bottom:1px solid #ccc;
 padding-bottom:4px;
 margin-top:20px;
 }
+.site-footer{
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  margin:20px 0;
+}
