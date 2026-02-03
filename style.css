@@ -85,35 +85,50 @@ margin-top:20px;
    Mobile Responsive Fix
    ===================== */
 
+/* ===== FINAL MOBILE CENTER FIX ===== */
 @media (max-width: 768px){
 
+  body{
+    margin: 0;
+    padding: 0;
+  }
+
   .container{
+    display: flex;
     flex-direction: column;
-    padding: 10px;
+    align-items: center;   /* 🔥 MOST IMPORTANT */
+    padding: 12px;
   }
 
   .form{
     width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .resume{
     width: 100%;
-    min-height: auto;
+    max-width: 500px;     /* 🔥 center width control */
+    margin: 0 auto;       /* 🔥 center horizontally */
     padding: 20px;
   }
 
   .header{
+    display: flex;
     flex-direction: column;
+    align-items: center;  /* 🔥 photo + name center */
     text-align: center;
   }
 
   .header img{
-    margin-bottom: 10px;
+    width: 110px;
+    height: 140px;
+    margin: 0 auto 12px auto;
+    display: block;
   }
 
   .content{
-    grid-template-columns: 1fr !important;
+    display: block;
   }
 
 }
-
