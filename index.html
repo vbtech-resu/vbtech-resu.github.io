@@ -2,56 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Resume Builder</title>
+<title>Professional Resume Builder</title>
 <link rel="stylesheet" href="style.css">
-
-<!-- html2pdf CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
 <div class="container">
 
-    <div class="form-section">
-        <h2>Create Your Resume</h2>
+<div class="form-section">
+<h2>Build Your Resume</h2>
 
-        <input type="text" id="name" placeholder="Full Name">
-        <input type="text" id="role" placeholder="Job Title">
-        <input type="text" id="phone" placeholder="Phone">
-        <input type="email" id="email" placeholder="Email">
-        <textarea id="summary" placeholder="Professional Summary"></textarea>
-        <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
-        <textarea id="education" placeholder="Education"></textarea>
-        <textarea id="experience" placeholder="Experience"></textarea>
+<input type="file" id="photo" accept="image/*">
 
-        <button onclick="generateResume()">Generate Resume</button>
-        <button class="download" onclick="downloadPDF()">Download PDF</button>
-    </div>
+<input type="text" id="name" placeholder="Full Name">
+<input type="text" id="role" placeholder="Job Title">
+<input type="text" id="phone" placeholder="Phone Number">
+<input type="email" id="email" placeholder="Email">
 
-    <div class="resume-section" id="resume">
-        <h1 id="r-name">Your Name</h1>
-        <h3 id="r-role">Your Job Title</h3>
+<textarea id="summary" placeholder="Professional Summary"></textarea>
+<textarea id="skills" placeholder="Skills (comma separated)"></textarea>
 
-        <div class="contact">
-            <p id="r-phone"></p>
-            <p id="r-email"></p>
-        </div>
+<h3>Education</h3>
+<input type="text" id="edu10" placeholder="10th – Board / School">
+<input type="text" id="edu12" placeholder="12th – Board / School">
+<input type="text" id="college" placeholder="College – Degree / University">
 
-        <hr>
+<h3>Experience</h3>
+<input type="text" id="company" placeholder="Company Name">
+<input type="text" id="expRole" placeholder="Role / Designation">
+<input type="text" id="years" placeholder="Years of Experience">
 
-        <h4>Summary</h4>
-        <p id="r-summary"></p>
+<button onclick="generateResume()">Generate Resume</button>
+<button class="download" onclick="downloadPDF()">Download PDF</button>
+</div>
 
-        <h4>Skills</h4>
-        <ul id="r-skills"></ul>
+<div class="resume-section" id="resume">
 
-        <h4>Education</h4>
-        <p id="r-education"></p>
+<div class="header">
+<img id="r-photo">
+<div>
+<h1 id="r-name">Your Name</h1>
+<h3 id="r-role">Job Title</h3>
+<p id="r-contact"></p>
+</div>
+</div>
 
-        <h4>Experience</h4>
-        <p id="r-experience"></p>
-    </div>
+<hr>
 
+<h4>Professional Summary</h4>
+<p id="r-summary"></p>
+
+<h4>Skills</h4>
+<ul id="r-skills"></ul>
+
+<h4>Education</h4>
+<ul>
+<li id="r-edu10"></li>
+<li id="r-edu12"></li>
+<li id="r-college"></li>
+</ul>
+
+<h4>Work Experience</h4>
+<p><strong id="r-company"></strong></p>
+<p id="r-expRole"></p>
+<p id="r-years"></p>
+
+</div>
 </div>
 
 <script src="script.js"></script>
