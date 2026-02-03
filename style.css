@@ -1,6 +1,6 @@
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#f2f4f7;
 }
 
@@ -17,7 +17,7 @@ padding:20px;
 border-radius:8px;
 }
 
-.form input, textarea{
+.form input, textarea, select{
 width:100%;
 padding:8px;
 margin-bottom:8px;
@@ -35,6 +35,7 @@ cursor:pointer;
 
 .download{background:#27ae60}
 
+/* RESUME */
 .resume{
 width:794px;
 min-height:1123px;
@@ -55,6 +56,16 @@ width:120px;
 height:140px;
 object-fit:cover;
 border:2px solid #1f3c88;
+}
+
+.content{
+display:grid;
+grid-template-columns:1fr;
+gap:25px;
+}
+
+.resume.two .content{
+grid-template-columns:1fr 1fr;
 }
 
 h4{
