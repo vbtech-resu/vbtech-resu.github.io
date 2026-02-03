@@ -80,3 +80,40 @@ margin-top:20px;
   color:#666;
   margin:20px 0;
 }
+
+/* =====================
+   Mobile Responsive Fix
+   ===================== */
+
+@media (max-width: 768px){
+
+  .container{
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .form{
+    width: 100%;
+  }
+
+  .resume{
+    width: 100%;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .header{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header img{
+    margin-bottom: 10px;
+  }
+
+  .content{
+    grid-template-columns: 1fr !important;
+  }
+
+}
+
