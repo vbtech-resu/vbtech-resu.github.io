@@ -46,8 +46,8 @@ function generateResume(){
 // apply education logic
 setEducation("edu10", "r-edu10", "10th");
 setEducation("edu12", "r-edu12", "12th");
-setEducation("ugCollege", "r-ugCollege", "UG");
-setEducation("pgCollege", "r-pgCollege", "PG");
+setEducation("ugcollege", "r-ugcollege", "UG");
+setEducation("pgcollege", "r-pgcollege", "PG");
 
 
   // skills
