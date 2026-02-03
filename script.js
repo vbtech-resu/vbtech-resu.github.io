@@ -66,7 +66,7 @@ function generateResume(){
 function downloadPDF(){
   html2pdf().set({
     margin:20,
-    filename:"Professional_Resume.pdf",
+    filename:"My_Resume.pdf",
     html2canvas:{scale:2},
     jsPDF:{format:"a4", orientation:"portrait"},
     pagebreak:{mode:["css","legacy"]}
