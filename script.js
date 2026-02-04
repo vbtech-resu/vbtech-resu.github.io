@@ -61,36 +61,38 @@ function setEdu(input, output, label){
 
 function downloadResume(){
   const resume = document.getElementById("resume");
+  const header = resume.querySelector(".header");
+
+  // 🔒 FORCE DESKTOP LAYOUT
+  resume.classList.add("capture-desktop");
+  header.style.flexDirection = "row";
+  header.style.textAlign = "left";
+
   const isMobile = window.innerWidth <= 768;
 
   if(isMobile){
-    // 📱 Mobile → IMAGE but DESKTOP (A4) layout
-    resume.classList.add("capture-desktop");
-
-    html2canvas(resume, {
-      scale: 2,
-      useCORS: true,
-      windowWidth: 794   // desktop width hint
-    }).then(canvas => {
+    html2canvas(resume, { scale: 2 }).then(canvas => {
       const link = document.createElement("a");
       link.download = "My_Resume.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
 
-      // 🔁 wapas normal mobile view
+      // 🔁 RESET
       resume.classList.remove("capture-desktop");
+      header.style.flexDirection = "";
+      header.style.textAlign = "";
     });
-
   }else{
-    // 🖥️ Desktop → PDF (same as before)
     html2pdf().set({
-      margin: 10,
-      filename: "My_Resume.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-      pagebreak: { mode: ["avoid-all"] }
-    }).from(resume).save();
+      margin:10,
+      filename:"My_Resume.pdf",
+      html2canvas:{scale:2},
+      jsPDF:{format:"a4",orientation:"portrait"}
+    }).from(resume).save().then(()=>{
+      resume.classList.remove("capture-desktop");
+      header.style.flexDirection = "";
+      header.style.textAlign = "";
+    });
   }
 }
 
