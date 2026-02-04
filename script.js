@@ -78,24 +78,33 @@ setEducation("pgcollege", "r-pgcollege", "PG");
   }
 }
 
-function downloadPDF(){
+function downloadResume(){
   const resume = document.getElementById("resume");
+  const isMobile = window.innerWidth <= 768;
 
-  html2pdf().set({
-    margin: 10,
-    filename: "My_Resume.pdf",
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: {
+  if(isMobile){
+    // 📱 MOBILE → IMAGE DOWNLOAD
+    html2canvas(resume, {
       scale: 2,
-      windowWidth: 794,   // 🔥 IMPORTANT
       useCORS: true
-    },
-    jsPDF: {
-      unit: "mm",
-      format: "a4",
-      orientation: "portrait"
-    }
-  }).from(resume).save();
+    }).then(canvas => {
+      const link = document.createElement("a");
+      link.download = "My_Resume.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
+
+  }else{
+    // 🖥️ DESKTOP → PDF DOWNLOAD
+    html2pdf().set({
+      margin: 10,
+      filename: "My_Resume.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+    }).from(resume).save();
+  }
 }
+
 
 
