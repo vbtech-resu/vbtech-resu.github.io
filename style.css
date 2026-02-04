@@ -1,48 +1,54 @@
+*{
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#f2f4f7;
+  margin:0;
+  background:#f2f4f7;
 }
 
 .container{
-display:flex;
-gap:20px;
-padding:20px;
+  display:flex;
+  gap:20px;
+  padding:20px;
 }
 
+/* FORM */
 .form{
-width:35%;
-background:#fff;
-padding:20px;
-border-radius:8px;
+  width:35%;
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
 }
 
-.form input, textarea, select{
-width:100%;
-padding:8px;
-margin-bottom:8px;
+.form input,
+.form textarea{
+  width:100%;
+  padding:8px;
+  margin-bottom:8px;
 }
 
 button{
-width:100%;
-padding:10px;
-background:#1f3c88;
-color:#fff;
-border:none;
-margin-top:8px;
-cursor:pointer;
+  width:100%;
+  padding:10px;
+  border:none;
+  cursor:pointer;
+  background:#1f3c88;
+  color:#fff;
+  margin-top:8px;
 }
 
-.download{background:#27ae60}
+.download{
+  background:#27ae60;
+}
 
 /* RESUME */
 .resume{
-width:794px;
-min-height:1123px;
-background:#fff;
-padding:40px;
-box-sizing:border-box;
-border-radius:8px;
+  width:210mm;
+  min-height:297mm;
+  background:#fff;
+  padding:20mm;
 }
 
 .header{
@@ -53,131 +59,55 @@ border-radius:8px;
   padding-bottom:15px;
 }
 
-.photo-box{
+.header img{
   width:120px;
   height:150px;
-  border:2px solid #1f3c88;
-  border-radius:6px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#f9fafb;
-}
-
-.photo-box img{
-  width:100%;
-  height:100%;
   object-fit:cover;
-  display:block;
-}
-
-.header-text h1{
-  margin:0;
-}
-
-.header-text p{
-  margin:4px 0;
-  color:#444;
+  border:2px solid #1f3c88;
 }
 
 .content{
-display:grid;
-grid-template-columns:1fr;
-gap:25px;
-}
-
-.resume.two .content{
-grid-template-columns:1fr 1fr;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
 
 h4{
-border-bottom:1px solid #ccc;
-padding-bottom:4px;
-margin-top:20px;
-}
-.site-footer{
-  text-align:center;
-  font-size:13px;
-  color:#666;
-  margin:20px 0;
+  border-bottom:1px solid #ccc;
+  padding-bottom:4px;
 }
 
-/* =====================
-   Mobile Responsive Fix
-   ===================== */
-
-/* ===== FINAL MOBILE CENTER FIX ===== */
-@media (max-width: 768px){
-
-  body{
-    margin: 0;
-    padding: 0;
-  }
-
+/* MOBILE VIEW */
+@media(max-width:768px){
   .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* 🔥 MOST IMPORTANT */
-    padding: 12px;
+    flex-direction:column;
+    align-items:center;
   }
 
-  .form{
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
+  .form,
   .resume{
-    width: 100%;
-    max-width: 500px;     /* 🔥 center width control */
-    margin: 0 auto;       /* 🔥 center horizontally */
-    padding: 20px;
+    width:100%;
+    max-width:500px;
   }
 
   .header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* 🔥 photo + name center */
-    text-align: center;
-  }
-
-  .header img{
-    width: 110px;
-    height: 140px;
-    margin: 0 auto 12px auto;
-    display: block;
+    flex-direction:column;
+    text-align:center;
   }
 
   .content{
-    display: block;
+    grid-template-columns:1fr;
   }
-
-}
-/* PDF FIX */
-.resume{
-  page-break-inside: avoid;
 }
 
-h4{
-  page-break-after: avoid;
-}
-
-/* ===== FORCE DESKTOP LAYOUT FOR PDF ===== */
+/* PDF LOCK */
 .pdf-mode{
-  width:794px !important;
-  min-height:1123px !important;
-  padding:40px !important;
-  background:#fff !important;
+  width:210mm !important;
+  min-height:297mm !important;
+  padding:20mm !important;
+  margin:0 auto !important;
 }
 
-.pdf-mode .header{
-  flex-direction:row !important;
-  text-align:left !important;
+.pdf-mode *{
+  page-break-inside:avoid !important;
 }
-
-.pdf-mode .content{
-  display:grid !important;
-  grid-template-columns:1fr !important;
-}
-
-
