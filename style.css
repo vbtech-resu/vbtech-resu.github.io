@@ -4,6 +4,11 @@ body{
   background:#f2f4f7;
 }
 
+*{
+  box-sizing: border-box;
+}
+
+
 .container{
   display:flex;
   gap:20px;
@@ -15,27 +20,58 @@ body{
   background:#fff;
   padding:20px;
   border-radius:8px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-.form input, .form textarea{
-  width:100%;
-  padding:8px;
-  margin-bottom:8px;
-}
-
-button{
+.form input,
+.form textarea{
   width:100%;
   padding:10px;
+  margin-bottom:10px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  transition:0.2s ease;
+}
+
+.form input:focus,
+.form textarea:focus{
+  border-color:#1f3c88;
+  outline:none;
+  box-shadow:0 0 0 4px rgba(31,60,136,0.1);
+}
+
+.form input:hover,
+.form textarea:hover{
+  border-color:#1f3c88;
+}
+button{
+  width:100%;
+  padding:12px;
   background:#1f3c88;
   color:#fff;
   border:none;
-  margin-top:8px;
+  border-radius:8px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+  margin:10px 0;
   cursor:pointer;
+  font-size:15px;
+  font-weight:500;
+  transition:0.2s ease;
+}
+
+button:hover{
+  opacity:0.95;
+  transform:translateY(-1px);
 }
 
 .download{
   background:#27ae60;
 }
+
+.download:hover{
+  background:#239b56;
+}
+
 
 /* ===== RESUME ===== */
 .resume{
@@ -44,14 +80,7 @@ button{
   padding:40px;
   border-radius:8px;
   box-sizing:border-box;
-}
-
-.header{
-  display:flex;
-  gap:20px;
-  align-items:center;
-  border-bottom:1px solid #ccc;
-  padding-bottom:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 .photo-box{
@@ -60,27 +89,15 @@ button{
   border:2px solid #1f3c88;
   border-radius:6px;
   background:#f9fafb;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-.photo-box img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.header-text h1{
-  margin:0;
-}
-
-.content{
-  margin-top:20px;
-}
-
 h4{
-  border-bottom:1px solid #ccc;
+  color:#1f3c88;
+  border-bottom:1px solid #ddd;
   padding-bottom:4px;
   margin-top:20px;
 }
@@ -115,4 +132,3 @@ h4{
   width: 794px !important;
   max-width: none !important;
 }
-
