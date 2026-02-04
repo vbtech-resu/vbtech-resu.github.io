@@ -4,10 +4,6 @@ body{
   background:#f2f4f7;
 }
 
-*{
-  box-sizing: border-box;
-}
-
 
 .container{
   display:flex;
