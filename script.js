@@ -94,3 +94,6 @@ function downloadResume(){
   }
 }
 
+// Auto-generate resume on typing (optional UX)
+document.querySelectorAll(".form input, .form textarea")
+  .forEach(el => el.addEventListener("input", generateResume));
