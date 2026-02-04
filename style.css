@@ -159,7 +159,7 @@ h4{
 .capture-desktop{
   width: 794px !important;
   max-width: none !important;
-
+}
 .capture-desktop .header{
   display:flex !important;
   flex-direction:row !important;
