@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resume Builder</title>
-
 <link rel="stylesheet" href="style.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!-- jsPDF core -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
+
 <body>
 
 <div class="container">
@@ -20,65 +20,63 @@
     <input type="file" id="photo">
 
     <input id="name" placeholder="Full Name">
-    <input id="role" placeholder="Job Title">
-    <input id="phone" placeholder="Phone">
+    <input id="phone" placeholder="Mobile">
     <input id="email" placeholder="Email">
     <textarea id="address" placeholder="Address"></textarea>
 
-    <textarea id="summary" placeholder="Professional Summary"></textarea>
-    <textarea id="skills" placeholder="Skills (HTML, CSS, JS)"></textarea>
-
     <h3>Education</h3>
-    <input id="edu10" placeholder="10th">
-    <input id="edu12" placeholder="12th">
+    <input id="edu10" placeholder="10">
+    <input id="edu12" placeholder="12">
     <input id="ug" placeholder="UG">
     <input id="pg" placeholder="PG">
 
     <h3>Experience</h3>
     <input id="company" placeholder="Company">
-    <input id="expRole" placeholder="Designation">
+    <input id="role" placeholder="Role">
     <input id="years" placeholder="Years">
 
+    <h3>Skills</h3>
+    <textarea id="skills" placeholder="HTML, CSS, JS"></textarea>
+
+    <h3>Summary</h3>
+    <textarea id="summary" placeholder="Professional summary"></textarea>
+
     <button onclick="generateResume()">Generate Resume</button>
-    <button class="download" onclick="downloadResume()">Download PDF</button>
+    <button class="download" onclick="downloadPDF()">Download PDF</button>
   </div>
 
   <!-- RESUME -->
   <div id="resume" class="resume">
+
     <div class="header">
       <img id="r-photo">
-      <div>
+      <div class="header-text">
         <h1 id="r-name"></h1>
-        <h3 id="r-role"></h3>
         <p id="r-contact"></p>
         <p id="r-address"></p>
       </div>
     </div>
 
-    <div class="content">
-      <div>
-        <h4>Education</h4>
-        <ul>
-          <li id="r-edu10"></li>
-          <li id="r-edu12"></li>
-          <li id="r-ug"></li>
-          <li id="r-pg"></li>
-        </ul>
-
-        <h4>Experience</h4>
-        <p id="r-company"></p>
-        <p id="r-expRole"></p>
-        <p id="r-years"></p>
-      </div>
-
-      <div>
-        <h4>Skills</h4>
-        <ul id="r-skills"></ul>
-
-        <h4>Summary</h4>
-        <p id="r-summary"></p>
-      </div>
+    <div id="r-education" class="section">
+      <h4>Education</h4>
+      <ul id="r-edu-list"></ul>
     </div>
+
+    <div id="r-experience" class="section">
+      <h4>Experience</h4>
+      <p id="r-exp"></p>
+    </div>
+
+    <div id="r-skills-sec" class="section">
+      <h4>Skills</h4>
+      <ul id="r-skills"></ul>
+    </div>
+
+    <div id="r-summary-sec" class="section">
+      <h4>Summary</h4>
+      <p id="r-summary"></p>
+    </div>
+
   </div>
 
 </div>
