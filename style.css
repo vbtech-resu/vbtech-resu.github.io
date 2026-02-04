@@ -7,15 +7,6 @@ body{
 *{
   box-sizing: border-box;
 }
-.header-text h1{
-  color:#111;
-  font-size:28px;
-}
-
-.header-text h3{
-  color:#1f3c88;
-  font-weight:500;
-}
 
 .container{
   display:flex;
@@ -92,15 +83,6 @@ button:hover{
   color:#333;
 }
 
-.resume h4{
-  color:#1f3c88;
-  font-weight:600;
-  border-bottom:1px solid #ddd;
-  padding-bottom:4px;
-  margin-top:20px;
-}
-
-
 .resume a{
   color:#333;
   text-decoration:none;
@@ -125,6 +107,7 @@ button:hover{
 
 h4{
   color:#1f3c88;
+  font-weight:600;
   border-bottom:1px solid #ddd;
   padding-bottom:4px;
   margin-top:20px;
