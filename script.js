@@ -106,3 +106,4 @@ function downloadPDF(){
     document.body.removeChild(pdfResume);
   });
 }
+
