@@ -2,10 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Resume Builder</title>
+<title>Instant Resume Builder</title>
 <link rel="stylesheet" href="style.css">
 
-<!-- jsPDF core -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
@@ -41,7 +40,6 @@
     <h3>Summary</h3>
     <textarea id="summary" placeholder="Professional summary"></textarea>
 
-    <button onclick="generateResume()">Generate Resume</button>
     <button class="download" onclick="downloadPDF()">Download PDF</button>
   </div>
 
@@ -57,22 +55,22 @@
       </div>
     </div>
 
-    <div id="r-education" class="section">
+    <div id="sec-edu" class="section">
       <h4>Education</h4>
-      <ul id="r-edu-list"></ul>
+      <ul id="r-edu"></ul>
     </div>
 
-    <div id="r-experience" class="section">
+    <div id="sec-exp" class="section">
       <h4>Experience</h4>
       <p id="r-exp"></p>
     </div>
 
-    <div id="r-skills-sec" class="section">
+    <div id="sec-skill" class="section">
       <h4>Skills</h4>
       <ul id="r-skills"></ul>
     </div>
 
-    <div id="r-summary-sec" class="section">
+    <div id="sec-summary" class="section">
       <h4>Summary</h4>
       <p id="r-summary"></p>
     </div>
