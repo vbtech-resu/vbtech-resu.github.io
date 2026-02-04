@@ -79,11 +79,23 @@ setEducation("pgcollege", "r-pgcollege", "PG");
 }
 
 function downloadPDF(){
+  const resume = document.getElementById("resume");
+
   html2pdf().set({
-    margin:20,
-    filename:"My_Resume.pdf",
-    html2canvas:{scale:2},
-    jsPDF:{format:"a4", orientation:"portrait"},
-    pagebreak:{mode:["css","legacy"]}
-  }).from(document.getElementById("resume")).save();
+    margin: [10, 10, 10, 10],   // 🔥 kam margin
+    filename: "My_Resume.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: {
+      scale: 2,
+      useCORS: true
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait"
+    },
+    pagebreak: {
+      mode: ["avoid-all", "css"]
+    }
+  }).from(resume).save();
 }
