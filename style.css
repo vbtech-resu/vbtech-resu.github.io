@@ -162,4 +162,22 @@ h4{
   page-break-after: avoid;
 }
 
+/* ===== FORCE DESKTOP LAYOUT FOR PDF ===== */
+.pdf-mode{
+  width:794px !important;
+  min-height:1123px !important;
+  padding:40px !important;
+  background:#fff !important;
+}
+
+.pdf-mode .header{
+  flex-direction:row !important;
+  text-align:left !important;
+}
+
+.pdf-mode .content{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+}
+
 
