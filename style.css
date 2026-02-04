@@ -14,7 +14,6 @@ body{
   padding:20px;
 }
 
-/* FORM */
 .form{
   width:35%;
   background:#fff;
@@ -32,10 +31,10 @@ body{
 button{
   width:100%;
   padding:10px;
-  border:none;
-  cursor:pointer;
   background:#1f3c88;
   color:#fff;
+  border:none;
+  cursor:pointer;
   margin-top:8px;
 }
 
@@ -54,7 +53,6 @@ button{
 .header{
   display:flex;
   gap:20px;
-  align-items:center;
   border-bottom:1px solid #ccc;
   padding-bottom:15px;
 }
@@ -62,14 +60,16 @@ button{
 .header img{
   width:120px;
   height:150px;
-  object-fit:cover;
   border:2px solid #1f3c88;
+  object-fit:cover;
 }
 
-.content{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
+.header-text h1{
+  margin:0;
+}
+
+.section{
+  margin-top:20px;
 }
 
 h4{
@@ -77,37 +77,18 @@ h4{
   padding-bottom:4px;
 }
 
-/* MOBILE VIEW */
+/* MOBILE */
 @media(max-width:768px){
   .container{
     flex-direction:column;
     align-items:center;
   }
-
-  .form,
-  .resume{
+  .form,.resume{
     width:100%;
     max-width:500px;
   }
-
   .header{
     flex-direction:column;
     text-align:center;
   }
-
-  .content{
-    grid-template-columns:1fr;
-  }
-}
-
-/* PDF LOCK */
-.pdf-mode{
-  width:210mm !important;
-  min-height:297mm !important;
-  padding:20mm !important;
-  margin:0 auto !important;
-}
-
-.pdf-mode *{
-  page-break-inside:avoid !important;
 }
