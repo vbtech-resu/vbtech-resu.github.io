@@ -21,7 +21,8 @@ body{
   border-radius:8px;
 }
 
-.form input,.form textarea{
+.form input,
+.form textarea{
   width:100%;
   padding:8px;
   margin-bottom:8px;
@@ -30,10 +31,15 @@ body{
 button{
   width:100%;
   padding:10px;
+  background:#1f3c88;
+  color:#fff;
   border:none;
   cursor:pointer;
+  margin-top:8px;
+}
+
+.download{
   background:#27ae60;
-  color:#fff;
 }
 
 /* RESUME */
@@ -58,27 +64,18 @@ button{
   object-fit:cover;
 }
 
-.section{
-  margin-top:20px;
-}
-
 h4{
   border-bottom:1px solid #ccc;
   padding-bottom:4px;
+  margin-top:20px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
   .container{
     flex-direction:column;
-    align-items:center;
   }
   .form,.resume{
     width:100%;
-    max-width:500px;
-  }
-  .header{
-    flex-direction:column;
-    text-align:center;
   }
 }
