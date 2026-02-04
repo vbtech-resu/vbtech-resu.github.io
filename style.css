@@ -1,10 +1,6 @@
-*{
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
-
 body{
   margin:0;
+  font-family:Arial, sans-serif;
   background:#f2f4f7;
 }
 
@@ -21,8 +17,7 @@ body{
   border-radius:8px;
 }
 
-.form input,
-.form textarea{
+.form input, .form textarea{
   width:100%;
   padding:8px;
   margin-bottom:8px;
@@ -34,34 +29,54 @@ button{
   background:#1f3c88;
   color:#fff;
   border:none;
-  cursor:pointer;
   margin-top:8px;
+  cursor:pointer;
 }
 
 .download{
   background:#27ae60;
 }
 
-/* RESUME */
+/* ===== RESUME ===== */
 .resume{
-  width:210mm;
-  min-height:297mm;
+  width:794px;
+  min-height:1123px;
   background:#fff;
-  padding:20mm;
+  padding:40px;
+  border-radius:8px;
 }
 
 .header{
   display:flex;
   gap:20px;
+  align-items:center;
   border-bottom:1px solid #ccc;
   padding-bottom:15px;
 }
 
-.header img{
+.photo-box{
   width:120px;
   height:150px;
   border:2px solid #1f3c88;
+  border-radius:6px;
+  background:#f9fafb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.photo-box img{
+  width:100%;
+  height:100%;
   object-fit:cover;
+}
+
+.header-text h1{
+  margin:0;
+}
+
+.content{
+  margin-top:20px;
 }
 
 h4{
@@ -70,12 +85,27 @@ h4{
   margin-top:20px;
 }
 
-/* MOBILE */
-@media(max-width:768px){
+.site-footer{
+  text-align:center;
+  font-size:13px;
+  color:#666;
+  margin:20px 0;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
   .container{
     flex-direction:column;
+    align-items:center;
   }
-  .form,.resume{
+
+  .form, .resume{
     width:100%;
+    max-width:500px;
+  }
+
+  .header{
+    flex-direction:column;
+    text-align:center;
   }
 }
