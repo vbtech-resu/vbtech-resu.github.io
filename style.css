@@ -153,3 +153,13 @@ margin-top:20px;
   }
 
 }
+/* PDF FIX */
+.resume{
+  page-break-inside: avoid;
+}
+
+h4{
+  page-break-after: avoid;
+}
+
+
