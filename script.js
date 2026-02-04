@@ -1,55 +1,81 @@
 function generateResume(){
 
-  r-name.innerText = name.value;
-  r-contact.innerText =
-    [phone.value, email.value].filter(Boolean).join(" | ");
-  r-address.innerText = address.value;
+  document.getElementById("r-name").innerText =
+    document.getElementById("name").value;
 
-  // PHOTO
-  if(photo.files[0]){
-    const reader = new FileReader();
-    reader.onload = ()=> r-photo.src = reader.result;
-    reader.readAsDataURL(photo.files[0]);
-  }
+  document.getElementById("r-role").innerText =
+    document.getElementById("role").value;
 
-  // EDUCATION
-  r-edu.innerHTML = "";
-  [["10",edu10.value],["12",edu12.value],["UG",ug.value],["PG",pg.value]]
-  .forEach(e=>{
-    if(e[1]){
-      const li=document.createElement("li");
-      li.innerText=e[0];
-      r-edu.appendChild(li);
-    }
-  });
-  sec-edu.style.display = r-edu.children.length ? "block" : "none";
+  document.getElementById("r-contact").innerText =
+    document.getElementById("phone").value + " | " +
+    document.getElementById("email").value;
 
-  // EXPERIENCE
-  const exp = [company.value, role.value, years.value].filter(Boolean).join(" – ");
-  r-exp.innerText = exp;
-  sec-exp.style.display = exp ? "block" : "none";
+  document.getElementById("r-address").innerText =
+    document.getElementById("address").value;
 
-  // SKILLS
-  r-skills.innerHTML="";
-  skills.value.split(",").forEach(s=>{
+  document.getElementById("r-summary").innerText =
+    document.getElementById("summary").value;
+
+  document.getElementById("r-company").innerText =
+    document.getElementById("company").value;
+
+  document.getElementById("r-expRole").innerText =
+    document.getElementById("expRole").value;
+
+  document.getElementById("r-years").innerText =
+    document.getElementById("years").value;
+
+  setEdu("edu10","r-edu10","10th");
+  setEdu("edu12","r-edu12","12th");
+  setEdu("ugcollege","r-ugcollege","UG");
+  setEdu("pgcollege","r-pgcollege","PG");
+
+  const skillsBox = document.getElementById("r-skills");
+  skillsBox.innerHTML = "";
+  document.getElementById("skills").value.split(",").forEach(s=>{
     if(s.trim()){
-      const li=document.createElement("li");
-      li.innerText=s.trim();
-      r-skills.appendChild(li);
+      const li = document.createElement("li");
+      li.innerText = s.trim();
+      skillsBox.appendChild(li);
     }
   });
-  sec-skill.style.display = r-skills.children.length ? "block" : "none";
 
-  // SUMMARY
-  r-summary.innerText = summary.value;
-  sec-summary.style.display = summary.value ? "block" : "none";
+  const file = document.getElementById("photo").files[0];
+  if(file){
+    const reader = new FileReader();
+    reader.onload = ()=> document.getElementById("r-photo").src = reader.result;
+    reader.readAsDataURL(file);
+  }
+}
+
+function setEdu(input, output, label){
+  const val = document.getElementById(input).value.trim();
+  const li = document.getElementById(output);
+  if(val){
+    li.innerText = label + ": " + val;
+    li.style.display = "list-item";
+  }else{
+    li.style.display = "none";
+  }
 }
 
 function downloadResume(){
-  html2pdf().set({
-    margin:15,
-    filename:"My_Resume.pdf",
-    html2canvas:{ scale:2 },
-    jsPDF:{ unit:"mm", format:"a4", orientation:"portrait" }
-  }).from(document.getElementById("resume")).save();
+  const resume = document.getElementById("resume");
+  const isMobile = window.innerWidth <= 768;
+
+  if(isMobile){
+    html2canvas(resume,{scale:2}).then(canvas=>{
+      const link = document.createElement("a");
+      link.download = "My_Resume.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
+  }else{
+    html2pdf().set({
+      margin:10,
+      filename:"My_Resume.pdf",
+      html2canvas:{scale:2},
+      jsPDF:{format:"a4",orientation:"portrait"}
+    }).from(resume).save();
+  }
 }
