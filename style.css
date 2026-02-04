@@ -40,10 +40,10 @@ button{
 /* ===== RESUME ===== */
 .resume{
   width:794px;
-  min-height:1123px;
   background:#fff;
   padding:40px;
   border-radius:8px;
+  box-sizing:border-box;
 }
 
 .header{
