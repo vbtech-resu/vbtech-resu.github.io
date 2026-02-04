@@ -1,110 +1,51 @@
 function generateResume(){
 
-  // layout switch
-  const resume = document.getElementById("resume");
-  const layout = document.getElementById("layout").value;
-  resume.className = "resume " + layout;
-
-  // basic info
-  document.getElementById("r-name").innerText =
-    document.getElementById("name").value;
-
-  document.getElementById("r-role").innerText =
-    document.getElementById("role").value;
-
+  document.getElementById("r-name").innerText = name.value;
+  document.getElementById("r-role").innerText = role.value;
   document.getElementById("r-contact").innerText =
-    document.getElementById("phone").value + " | " +
-    document.getElementById("email").value;
+    phone.value + " | " + email.value;
+  document.getElementById("r-address").innerText = address.value;
 
-  document.getElementById("r-address").innerText =
-  document.getElementById("address").value;
+  document.getElementById("r-summary").innerText = summary.value;
 
+  document.getElementById("r-company").innerText = company.value;
+  document.getElementById("r-expRole").innerText = expRole.value;
+  document.getElementById("r-years").innerText = years.value;
 
-  document.getElementById("r-summary").innerText =
-    document.getElementById("summary").value;
+  r-edu10.innerText = edu10.value;
+  r-edu12.innerText = edu12.value;
+  r-ug.innerText = ug.value;
+  r-pg.innerText = pg.value;
 
-  // experience
-  document.getElementById("r-company").innerText =
-    document.getElementById("company").value;
-
-  document.getElementById("r-expRole").innerText =
-    document.getElementById("expRole").value;
-
-  document.getElementById("r-years").innerText =
-    document.getElementById("years").value;
-
-  // education
-  function setEducation(inputId, outputId, label) {
-  const value = document.getElementById(inputId).value.trim();
-  const li = document.getElementById(outputId);
-
-  if (value !== "") {
-    li.textContent = label + ": " + value;
-    li.style.display = "list-item";
-  } else {
-    li.textContent = "";
-    li.style.display = "none";
-  }
-}
-
-// apply education logic
-setEducation("edu10", "r-edu10", "10th");
-setEducation("edu12", "r-edu12", "12th");
-setEducation("ugcollege", "r-ugcollege", "UG");
-setEducation("pgcollege", "r-pgcollege", "PG");
-
-
-  // skills
   const skillsBox = document.getElementById("r-skills");
   skillsBox.innerHTML = "";
-  const skills = document.getElementById("skills").value;
-
-  if(skills.trim() !== ""){
-    skills.split(",").forEach(s=>{
-      let li = document.createElement("li");
+  skills.value.split(",").forEach(s=>{
+    if(s.trim()){
+      const li = document.createElement("li");
       li.innerText = s.trim();
       skillsBox.appendChild(li);
-    });
-  }
+    }
+  });
 
-  // photo
-  const file = document.getElementById("photo").files[0];
+  const file = photo.files[0];
   if(file){
     const reader = new FileReader();
-    reader.onload = function(){
-      document.getElementById("r-photo").src = reader.result;
-    }
+    reader.onload = ()=> r-photo.src = reader.result;
     reader.readAsDataURL(file);
   }
 }
 
 function downloadResume(){
   const resume = document.getElementById("resume");
-  const isMobile = window.innerWidth <= 768;
+  resume.classList.add("pdf-mode");
 
-  if(isMobile){
-    // 📱 MOBILE → IMAGE DOWNLOAD
-    html2canvas(resume, {
-      scale: 2,
-      useCORS: true
-    }).then(canvas => {
-      const link = document.createElement("a");
-      link.download = "My_Resume.png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-    });
-
-  }else{
-    // 🖥️ DESKTOP → PDF DOWNLOAD
-    html2pdf().set({
-      margin: 10,
-      filename: "My_Resume.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-    }).from(resume).save();
-  }
+  html2pdf().set({
+    margin:0,
+    filename:"My_Resume.pdf",
+    image:{type:"jpeg", quality:1},
+    html2canvas:{scale:2},
+    jsPDF:{unit:"mm", format:"a4", orientation:"portrait"}
+  }).from(resume).save().then(()=>{
+    resume.classList.remove("pdf-mode");
+  });
 }
-
-
-
