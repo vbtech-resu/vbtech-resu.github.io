@@ -64,25 +64,33 @@ function downloadResume(){
   const isMobile = window.innerWidth <= 768;
 
   if(isMobile){
-    html2canvas(resume,{scale:2}).then(canvas=>{
+    // 📱 Mobile → IMAGE but DESKTOP (A4) layout
+    resume.classList.add("capture-desktop");
+
+    html2canvas(resume, {
+      scale: 2,
+      useCORS: true,
+      windowWidth: 794   // desktop width hint
+    }).then(canvas => {
       const link = document.createElement("a");
       link.download = "My_Resume.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
+
+      // 🔁 wapas normal mobile view
+      resume.classList.remove("capture-desktop");
     });
+
   }else{
-   html2pdf().set({
-   margin: 10,
-   filename: "My_Resume.pdf",
-   image: { type: "jpeg", quality: 0.98 },
-   html2canvas: { scale: 2 },
-   jsPDF: {
-    unit: "mm",
-    format: "a4",
-    orientation: "portrait"
-   },
-  pagebreak: { mode: ["avoid-all"] }
-  }).from(resume).save();
+    // 🖥️ Desktop → PDF (same as before)
+    html2pdf().set({
+      margin: 10,
+      filename: "My_Resume.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      pagebreak: { mode: ["avoid-all"] }
+    }).from(resume).save();
   }
 }
-;
+
