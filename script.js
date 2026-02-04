@@ -1,51 +1,64 @@
 function generateResume(){
 
-  document.getElementById("r-name").innerText = name.value;
-  document.getElementById("r-role").innerText = role.value;
-  document.getElementById("r-contact").innerText =
-    phone.value + " | " + email.value;
-  document.getElementById("r-address").innerText = address.value;
+  // BASIC
+  r-name.innerText = name.value;
+  r-contact.innerText =
+    [phone.value, email.value].filter(Boolean).join(" | ");
+  r-address.innerText = address.value;
 
-  document.getElementById("r-summary").innerText = summary.value;
+  // PHOTO
+  if(photo.files[0]){
+    const r = new FileReader();
+    r.onload = () => r-photo.src = r.result;
+    r.readAsDataURL(photo.files[0]);
+  }
 
-  document.getElementById("r-company").innerText = company.value;
-  document.getElementById("r-expRole").innerText = expRole.value;
-  document.getElementById("r-years").innerText = years.value;
+  // EDUCATION
+  const eduList = document.getElementById("r-edu-list");
+  eduList.innerHTML = "";
 
-  r-edu10.innerText = edu10.value;
-  r-edu12.innerText = edu12.value;
-  r-ug.innerText = ug.value;
-  r-pg.innerText = pg.value;
+  [["10",edu10.value],["12",edu12.value],["UG",ug.value],["PG",pg.value]]
+  .forEach(e=>{
+    if(e[1]){
+      const li = document.createElement("li");
+      li.innerText = e[0];
+      eduList.appendChild(li);
+    }
+  });
 
-  const skillsBox = document.getElementById("r-skills");
-  skillsBox.innerHTML = "";
+  document.getElementById("r-education").style.display =
+    eduList.children.length ? "block" : "none";
+
+  // EXPERIENCE
+  const expText = [company.value, role.value, years.value].filter(Boolean).join(" – ");
+  r-exp.innerText = expText;
+  r-experience.style.display = expText ? "block" : "none";
+
+  // SKILLS
+  r-skills.innerHTML = "";
   skills.value.split(",").forEach(s=>{
     if(s.trim()){
       const li = document.createElement("li");
       li.innerText = s.trim();
-      skillsBox.appendChild(li);
+      r-skills.appendChild(li);
     }
   });
+  r-skills-sec.style.display = r-skills.children.length ? "block" : "none";
 
-  const file = photo.files[0];
-  if(file){
-    const reader = new FileReader();
-    reader.onload = ()=> r-photo.src = reader.result;
-    reader.readAsDataURL(file);
-  }
+  // SUMMARY
+  r-summary.innerText = summary.value;
+  r-summary-sec.style.display = summary.value ? "block" : "none";
 }
 
-function downloadResume(){
-  const resume = document.getElementById("resume");
-  resume.classList.add("pdf-mode");
+function downloadPDF(){
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF("p","mm","a4");
 
-  html2pdf().set({
-    margin:0,
-    filename:"My_Resume.pdf",
-    image:{type:"jpeg", quality:1},
-    html2canvas:{scale:2},
-    jsPDF:{unit:"mm", format:"a4", orientation:"portrait"}
-  }).from(resume).save().then(()=>{
-    resume.classList.remove("pdf-mode");
+  pdf.html(document.getElementById("resume"),{
+    margin:20,
+    autoPaging:"text",
+    callback:function(doc){
+      doc.save("My_Resume.pdf");
+    }
   });
 }
