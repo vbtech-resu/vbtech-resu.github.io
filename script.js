@@ -79,31 +79,23 @@ setEducation("pgcollege", "r-pgcollege", "PG");
 }
 
 function downloadPDF(){
-
   const resume = document.getElementById("resume");
 
-  // 🔥 Desktop clone for PDF
-  const pdfResume = resume.cloneNode(true);
-  pdfResume.classList.add("pdf-mode");
-
-  // Screen se bahar rakho
-  pdfResume.style.position = "absolute";
-  pdfResume.style.left = "-9999px";
-  pdfResume.style.top = "0";
-
-  document.body.appendChild(pdfResume);
-
   html2pdf().set({
-    margin:10,
-    filename:"My_Resume.pdf",
-    image:{ type:"jpeg", quality:0.98 },
-    html2canvas:{ scale:2, useCORS:true },
-    jsPDF:{ unit:"mm", format:"a4", orientation:"portrait" }
-  })
-  .from(pdfResume)
-  .save()
-  .then(()=>{
-    document.body.removeChild(pdfResume);
-  });
+    margin: 10,
+    filename: "My_Resume.pdf",
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: {
+      scale: 2,
+      windowWidth: 794,   // 🔥 IMPORTANT
+      useCORS: true
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait"
+    }
+  }).from(resume).save();
 }
+
 
