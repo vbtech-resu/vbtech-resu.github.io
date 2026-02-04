@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Instant Resume Builder</title>
+<title>Resume Preview Builder</title>
+
 <link rel="stylesheet" href="style.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- html2pdf (stable) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
@@ -38,39 +40,40 @@
     <textarea id="skills" placeholder="HTML, CSS, JS"></textarea>
 
     <h3>Summary</h3>
-    <textarea id="summary" placeholder="Professional summary"></textarea>
+    <textarea id="summary"></textarea>
 
-    <button class="download" onclick="downloadPDF()">Download PDF</button>
+    <button onclick="generateResume()">Generate Preview</button>
+    <button class="download" onclick="downloadResume()">Download PDF</button>
   </div>
 
-  <!-- RESUME -->
+  <!-- RESUME PREVIEW -->
   <div id="resume" class="resume">
 
     <div class="header">
       <img id="r-photo">
-      <div class="header-text">
+      <div>
         <h1 id="r-name"></h1>
         <p id="r-contact"></p>
         <p id="r-address"></p>
       </div>
     </div>
 
-    <div id="sec-edu" class="section">
+    <div id="sec-edu">
       <h4>Education</h4>
       <ul id="r-edu"></ul>
     </div>
 
-    <div id="sec-exp" class="section">
+    <div id="sec-exp">
       <h4>Experience</h4>
       <p id="r-exp"></p>
     </div>
 
-    <div id="sec-skill" class="section">
+    <div id="sec-skill">
       <h4>Skills</h4>
       <ul id="r-skills"></ul>
     </div>
 
-    <div id="sec-summary" class="section">
+    <div id="sec-summary">
       <h4>Summary</h4>
       <p id="r-summary"></p>
     </div>
