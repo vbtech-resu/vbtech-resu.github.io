@@ -93,6 +93,26 @@ button:hover{
   line-height:1.6;
 }
 
+.header{
+  display:flex;
+  align-items:center;
+  gap:16px;              /* 🔥 ye line add karo */
+  border-bottom:1px solid #ddd;
+  padding-bottom:12px;
+}
+
+.header-text h1{
+  margin:0;
+}
+
+.header-text h3{
+  margin:4px 0;
+}
+
+.header-text p{
+  margin:2px 0;
+}
+
 .photo-box{
   width:120px;
   height:150px;
@@ -112,6 +132,8 @@ button:hover{
   overflow:hidden;
   background:#fff;
 }
+
+.header{
 
 h4{
   color:#1f3c88;
