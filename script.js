@@ -63,7 +63,7 @@ function downloadResume(){
   const resume = document.getElementById("resume");
   const header = resume.querySelector(".header");
 
-  // 🔒 FORCE DESKTOP LAYOUT
+  // force desktop layout
   resume.classList.add("capture-desktop");
   header.style.flexDirection = "row";
   header.style.textAlign = "left";
@@ -71,23 +71,35 @@ function downloadResume(){
   const isMobile = window.innerWidth <= 768;
 
   if(isMobile){
-    html2canvas(resume, { scale: 2 }).then(canvas => {
+    // 📱 MOBILE → IMAGE (safe & reliable)
+    html2canvas(resume, {
+      scale: 2,
+      useCORS: true
+    }).then(canvas => {
       const link = document.createElement("a");
       link.download = "My_Resume.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
 
-      // 🔁 RESET
       resume.classList.remove("capture-desktop");
       header.style.flexDirection = "";
       header.style.textAlign = "";
     });
+
   }else{
+    // 💻 DESKTOP → PDF (text never blank)
     html2pdf().set({
-      margin: [5, 5, 5, 5],
-      filename:"My_Resume.pdf",
-      html2canvas:{scale:2, scrolly:0},
-      jsPDF:{format:"a4",orientation:"portrait", unit:"mm"}
+      margin: [8,8,8,8],
+      filename: "My_Resume.pdf",
+      html2canvas:{
+        scale: 2,      // 🔒 text-safe
+        useCORS: true
+      },
+      jsPDF:{
+        unit: "mm",
+        format: "a4",
+        orientation: "portrait"
+      }
     }).from(resume).save().then(()=>{
       resume.classList.remove("capture-desktop");
       header.style.flexDirection = "";
