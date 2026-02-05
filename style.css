@@ -76,7 +76,7 @@ button:hover{
 .resume{
   width:794px;
   background:#fff;
-  padding:10px;
+  padding:40px;
   border-radius:8px;
   box-sizing:border-box;
   box-shadow:0 8px 20px rgba(0,0,0,0.08);
@@ -114,8 +114,8 @@ button:hover{
 }
 
 .photo-box{
-  width:100px;
-  height:120px;
+  width:120px;
+  height:150px;
   border:2px solid #1f3c88;
   border-radius:6px;
   box-shadow:0 4px 10px rgba(0,0,0,0.08);
@@ -138,7 +138,7 @@ h4{
   font-weight:600px;
   border-bottom:1px solid #ddd;
   padding-bottom:4px;
-  margin-top:5px;
+  margin-top:20px;
 }
 
 .site-footer{
