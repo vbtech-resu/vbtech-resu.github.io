@@ -84,7 +84,7 @@ function downloadResume(){
     });
   }else{
     html2pdf().set({
-      margin:10,
+      margin:5,
       filename:"My_Resume.pdf",
       html2canvas:{scale:2},
       jsPDF:{format:"a4",orientation:"portrait"}
