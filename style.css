@@ -75,6 +75,7 @@ button:hover{
 /* ===== RESUME ===== */
 .resume{
   width:794px;
+  Height:auto;
   background:#fff;
   padding:40px;
   border-radius:8px;
@@ -132,8 +133,6 @@ button:hover{
   overflow:hidden;
   background:#fff;
 }
-
-.header{
 
 h4{
   color:#1f3c88;
