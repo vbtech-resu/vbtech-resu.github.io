@@ -114,8 +114,8 @@ button:hover{
 }
 
 .photo-box{
-  width:120px;
-  height:150px;
+  width:100px;
+  height:120px;
   border:2px solid #1f3c88;
   border-radius:6px;
   box-shadow:0 4px 10px rgba(0,0,0,0.08);
@@ -135,7 +135,7 @@ button:hover{
 
 h4{
   color:#1f3c88;
-  font-weight:600;
+  font-weight:600px;
   border-bottom:1px solid #ddd;
   padding-bottom:4px;
   margin-top:10px;
