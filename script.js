@@ -86,8 +86,8 @@ function downloadResume(){
     html2pdf().set({
       margin:5,
       filename:"My_Resume.pdf",
-      html2canvas:{scale:2},
-      jsPDF:{format:"a4",orientation:"portrait"}
+      html2canvas:{scale:2, scrolly:0},
+      jsPDF:{format:"a4",orientation:"portrait", unit:"mm"}
     }).from(resume).save().then(()=>{
       resume.classList.remove("capture-desktop");
       header.style.flexDirection = "";
