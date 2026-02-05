@@ -75,9 +75,9 @@ button:hover{
 /* ===== RESUME ===== */
 .resume{
   width:794px;
-  Height:auto;
+  Height:80%;
   background:#fff;
-  padding:40px;
+  padding:20px;
   border-radius:8px;
   box-sizing:border-box;
   box-shadow:0 8px 20px rgba(0,0,0,0.08);
@@ -127,8 +127,8 @@ button:hover{
 }
 
 .photo-box img{
-  width:100%
-  height:100%
+  width:100%;
+  height:100%;
   object-fit:contain;
   overflow:hidden;
   background:#fff;
