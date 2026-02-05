@@ -75,7 +75,6 @@ button:hover{
 /* ===== RESUME ===== */
 .resume{
   width:794px;
-  Height:80%;
   background:#fff;
   padding:20px;
   border-radius:8px;
@@ -139,7 +138,7 @@ h4{
   font-weight:600;
   border-bottom:1px solid #ddd;
   padding-bottom:4px;
-  margin-top:20px;
+  margin-top:10px;
 }
 
 .site-footer{
